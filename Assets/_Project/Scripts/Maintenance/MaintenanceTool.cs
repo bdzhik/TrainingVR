@@ -55,7 +55,6 @@ namespace TrainingVR.Maintenance
             }
 
             elapsedTime += Time.deltaTime;
-            scenario.SetToolProgress(elapsedTime / activationDuration);
 
             if (elapsedTime < activationDuration)
                 return;
@@ -128,7 +127,6 @@ namespace TrainingVR.Maintenance
             activationHeld = false;
             activeZone = null;
             elapsedTime = 0f;
-            scenario?.SetToolProgress(0f);
         }
     }
 }

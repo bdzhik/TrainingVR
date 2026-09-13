@@ -1,14 +1,12 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace TrainingVR.Maintenance
 {
     public sealed class MaintenanceScenarioView : MonoBehaviour
     {
         [SerializeField] private MaintenanceScenarioController scenario;
-        [FormerlySerializedAs("messageText")]
         [SerializeField] private TMP_Text currentTaskText;
         [SerializeField] private TMP_Text stepsText;
         [SerializeField] private TMP_Text feedbackText;

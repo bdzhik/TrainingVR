@@ -11,7 +11,6 @@ namespace TrainingVR.Maintenance
 
         public event Action<ScenarioState> StateChanged;
         public event Action<string> FeedbackRaised;
-        public event Action<float> ToolProgressChanged;
         public event Action Restarted;
 
         public bool CanPerform(ScenarioAction action)
@@ -28,7 +27,6 @@ namespace TrainingVR.Maintenance
             }
 
             stateMachine.TryAdvance(action);
-            ToolProgressChanged?.Invoke(0f);
             StateChanged?.Invoke(CurrentState);
             return true;
         }
@@ -44,18 +42,9 @@ namespace TrainingVR.Maintenance
                 FeedbackRaised?.Invoke(message);
         }
 
-        public void SetToolProgress(float normalizedProgress)
-        {
-            if (CurrentState != ScenarioState.AwaitingToolUse)
-                normalizedProgress = 0f;
-
-            ToolProgressChanged?.Invoke(Mathf.Clamp01(normalizedProgress));
-        }
-
         public void RestartScenario()
         {
             stateMachine.Reset();
-            ToolProgressChanged?.Invoke(0f);
             Restarted?.Invoke();
             StateChanged?.Invoke(CurrentState);
         }
@@ -79,6 +68,5 @@ namespace TrainingVR.Maintenance
                 _ => "Действие выполнено в неправильном порядке."
             };
         }
-
     }
 }

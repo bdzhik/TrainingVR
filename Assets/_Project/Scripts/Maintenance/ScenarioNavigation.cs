@@ -1,13 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace TrainingVR.Maintenance
 {
     public sealed class ScenarioNavigation : MonoBehaviour
     {
         [SerializeField] private MaintenanceScenarioController scenario;
-        [FormerlySerializedAs("fallbackMenuSceneName")]
         [SerializeField] private string menuSceneName = "Menu";
 
         public void Restart()
