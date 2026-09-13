@@ -1,0 +1,14 @@
+{
+  "name": "TrainingVR.Maintenance",
+  "rootNamespace": "TrainingVR.Maintenance",
+  "references": [
+    "Unity.XR.Interaction.Toolkit",
+    "Unity.TextMeshPro",
+    "UnityEngine.UI",
+    "Unity.Addressables",
+    "Unity.ResourceManager",
+    "Unity.InputSystem"
+  ],
+  "autoReferenced": true,
+  "noEngineReferences": false
+}
